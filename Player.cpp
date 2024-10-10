@@ -19,10 +19,10 @@ void Player::Update(char* keys, char* preKeys) {
 
 	// プレイヤーの四隅の座標を設定
 	playerCorner_ = {
-		{playerPos_.x - 10, playerPos_.y + 10},
-		{playerPos_.x + 10, playerPos_.y + 10},
-		{playerPos_.x - 10, playerPos_.y - 10},
-		{playerPos_.x + 10, playerPos_.y - 10}
+		{playerPos_.x - 10, playerPos_.y - 10},//左上
+		{playerPos_.x + 10, playerPos_.y - 10},//右上
+		{playerPos_.x - 10, playerPos_.y + 10},//左下
+		{playerPos_.x + 10, playerPos_.y + 10}//右下
 	};
 
 	// ジャンプ中ではなく、地面にいる場合の処理

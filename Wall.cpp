@@ -24,7 +24,7 @@ void Wall::Stage1Initialize()
 {
 	wallNum_ = 10;
 	float heightTotal = 400;
-	float distance = 50;
+	float distance = 150;
 
 	for (int i = 0;i < 28;i++) {
 		pos_[i] = {};
@@ -49,11 +49,11 @@ void Wall::Stage1Initialize()
 	height_[9] = heightTotal - height_[8];
 
 	//下の壁の位置
-	pos_[0].x = 200.0f;
-	pos_[2].x = 400.0f;
-	pos_[4].x = 600.0f;
-	pos_[6].x = 800.0f;
-	pos_[8].x = 1000.0f;
+	pos_[0].x =400.0f;
+	pos_[2].x = 600.0f;
+	pos_[4].x = 800.0f;
+	pos_[6].x = 1000.0f;
+	pos_[8].x = 1200.0f;
 
 	
 
