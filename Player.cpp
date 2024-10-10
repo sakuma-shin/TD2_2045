@@ -31,7 +31,7 @@ void Player::Update(char* keys, char* preKeys) {
 		if (keys[DIK_SPACE]) {
 			if (pushTime_ < maxPushTime_) {
 				isHold_ = true;
-				pushTime_ += 1;
+				pushTime_ += 2;
 			}
 		}
 		// スペースキーが離された場合、ジャンプ処理
@@ -43,16 +43,16 @@ void Player::Update(char* keys, char* preKeys) {
 				startJumpPower_ = 30;
 			}
 			else if (pushTime_ > 20 && pushTime_ <= 40) {
-				startJumpPower_ = 33;
-			}
-			else if (pushTime_ > 40 && pushTime_ <= 60) {
 				startJumpPower_ = 36;
 			}
+			else if (pushTime_ > 40 && pushTime_ <= 60) {
+				startJumpPower_ = 42;
+			}
 			else if (pushTime_ > 60 && pushTime_ <= 80) {
-				startJumpPower_ = 39;
+				startJumpPower_ = 48;
 			}
 			else if (pushTime_ > 80 && pushTime_ <= 100) {
-				startJumpPower_ = 42;
+				startJumpPower_ = 54;
 			}
 
 			// ジャンプ力をプレイヤーに反映
@@ -73,7 +73,7 @@ void Player::Update(char* keys, char* preKeys) {
 			// スペースキーが押されている場合、再度ジャンプの溜め処理
 			if (keys[DIK_SPACE]) {
 				isHold_ = true;
-				pushTime_ += 1;
+				pushTime_ += 2;
 				downPower_ = 1; // 下降速度の変更
 			}
 			// スペースキーが離された時の2段ジャンプ処理
