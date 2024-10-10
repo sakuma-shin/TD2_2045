@@ -5,10 +5,12 @@
 #include"Wall.h"
 #include"GamePlayScene.h"
 #include"TitleScene.h"
+#include "SelectStageScene.h"
 
 enum Scene {
 
 	kUnknown,
+	kSelect,
 	kTitle,
 	kPlay,
 	kClear
@@ -18,6 +20,7 @@ Scene scene = kUnknown;
 
 GamePlayScene* gameScene = nullptr;
 TitleScene* titleScene = nullptr;
+SelectStageScene* selectStageScene = nullptr;
 
 void ChangeScene();
 void UpdateScene();
@@ -45,6 +48,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	titleScene = new TitleScene();
 	titleScene->Initialize();
+
+	selectStageScene = new SelectStageScene();
+	selectStageScene->initialize();
 
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -99,16 +105,30 @@ void ChangeScene() {
 		if (titleScene->IsFinished()) {
 
 
-			scene = Scene::kPlay;
+			scene = Scene::kSelect;
 
 			delete titleScene;
 			titleScene = nullptr;
+
+			selectStageScene = new SelectStageScene();
+			selectStageScene->initialize();
+
+		}
+		break;
+
+	case kSelect:
+
+		if (selectStageScene->IsFinished1()) {
+
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
 
 			gameScene = new GamePlayScene();
 			gameScene->Initialize();
 
 		}
-		break;
 
 	case kPlay:
 		if (gameScene->IsFinished()) {
@@ -131,6 +151,10 @@ void UpdateScene() {
 		titleScene->Update(keys, preKeys);
 		break;
 
+	case kSelect:
+		selectStageScene->Update(keys, preKeys);
+		break;
+
 	case kPlay:
 		gameScene->Update(keys, preKeys);
 		break;
@@ -144,6 +168,10 @@ void DrawScene() {
 	switch (scene) {
 	case kTitle:
 		titleScene->Draw();
+		break;
+
+	case kSelect:
+		selectStageScene->Draw();
 		break;
 
 	case kPlay:
