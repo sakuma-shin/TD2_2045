@@ -78,7 +78,10 @@ void Player::Update(char* keys, char* preKeys) {
 				isHold_ = true;
 				pushTime_ += 2;
 				downPower_ = 0; // 下降速度の変更
-				moveSpeed_ = 1.0f;
+				moveSpeed_ = 0;
+				if (pushTime_ >= 100) {
+					pushTime_ = 0;
+				}
 			}
 			// スペースキーが離された時の2段ジャンプ処理
 			else if (keys[DIK_SPACE] == 0 && preKeys[DIK_SPACE] && isHold_) {
