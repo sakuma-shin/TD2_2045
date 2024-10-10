@@ -10,7 +10,8 @@ enum Scene {
 
 	kUnknown,
 	kTitle,
-	kPlay
+	kPlay,
+	kClear
 };
 
 Scene scene = kUnknown;
@@ -132,6 +133,9 @@ void UpdateScene() {
 
 	case kPlay:
 		gameScene->Update(keys, preKeys);
+		break;
+
+	case kClear:
 		break;
 	}
 }

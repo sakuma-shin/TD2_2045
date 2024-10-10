@@ -18,9 +18,21 @@ void GamePlayScene::Initialize()
 
 	wall_ = new Wall();
 
-	wall_->Initialize();
-
 	scroll_ = 0.0f;
+
+	switch (stage) {
+	case STAGE1:
+		goalPos = 3000.0f;
+		wall_->Stage1Initialize();
+		break;
+	case STAGE2:
+
+		break;
+
+	case STAGE3:
+
+		break;
+	}
 
 }
 
@@ -43,6 +55,13 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 			isFinished_ = true;
 		}
 	}
+
+	if (player_->GetPos().x >= goalPos) {
+		isFinished_ = true;
+	}
+
+	
+
 }
 
 void GamePlayScene::Draw()

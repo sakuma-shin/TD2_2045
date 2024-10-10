@@ -45,5 +45,7 @@ private:
 
 	float scroll_ = 0.0f;
 
+	float goalPos = 1000000.0f;
+
 };
 
