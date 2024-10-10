@@ -9,6 +9,8 @@ void GamePlayScene::Initialize()
 	height_ = 720.0f;
 
 	whiteCorners_ = PosUpdate(pos_, width_, height_);
+
+	player_ = new Player();
 }
 
 void GamePlayScene::Update(char keys[256], char preKeys[256])
@@ -18,11 +20,13 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 	}
 
 	whiteCorners_ = PosUpdate(pos_, width_, height_);
+
+	player_->Update(keys,preKeys);
 }
 
 void GamePlayScene::Draw()
 {
-	
+	player_->Draw();
 }
 
 Corners GamePlayScene::PosUpdate(Vector2 pos, float width, float height)

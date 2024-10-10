@@ -1,6 +1,7 @@
 #pragma once
 #include <Novice.h>
 #include "Hit.h"
+#include "Player.h"
 class GamePlayScene
 {
 public:
@@ -38,6 +39,8 @@ private:
 	float height_ = 0.0f;
 
 	Corners whiteCorners_ = {};
+
+	Player* player_ = nullptr;
 
 };
 
