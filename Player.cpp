@@ -154,3 +154,8 @@ void Player::Draw() {
 uint32_t Player::GetTime() {
 	return pushTime_;
 }
+
+Corners Player::GetCorners()
+{
+	return playerCorner_;
+}
