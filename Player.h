@@ -20,7 +20,7 @@ public:
 
 	uint32_t GetTime();
 
-
+	Corners GetCorners();
 private:
 
 	float startJumpPower_ = 0;

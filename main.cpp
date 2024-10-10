@@ -61,6 +61,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓更新処理ここから
 		///
+		/// 
 		ChangeScene();
 		UpdateScene();
 
