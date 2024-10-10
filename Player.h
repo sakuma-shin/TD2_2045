@@ -16,11 +16,15 @@ public:
 
 	void Update(char* keys, char* preKeys);
 
-	void Draw();
+	void Draw(float scroll);
 
 	uint32_t GetTime();
 
+	Corners GetCorners();
 
+	Vector2 GetPos();
+
+	float GetSpeed();
 private:
 
 	float startJumpPower_ = 0;

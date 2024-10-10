@@ -8,7 +8,7 @@ public:
 
 	void Initialize();
 	void Update();
-	void Draw();
+	void Draw(float scroll);
 
 	void DrawQuad(Corners a, int imageGH, int imageWidth, int imageHeight, unsigned int color, float scroll);
 
@@ -16,7 +16,10 @@ public:
 	void Stage2Initialize();
 	void Stage3Initialize();
 
+	Corners PosUpdate(Vector2 pos, float width, float height);
 
+
+	Corners GetCorners(int i) { return corners_[i]; }
 
 private:
 
@@ -24,6 +27,8 @@ private:
 	float width_[28];
 	float height_[28];
 	Corners corners_[28];
+
+	int wallNum_ = 0;
 
 	int GH = Novice::LoadTexture("white1x1.png");
 

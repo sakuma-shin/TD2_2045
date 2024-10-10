@@ -1,32 +1,55 @@
 #include "GamePlayScene.h"
 
+GamePlayScene::GamePlayScene()
+{
+}
+
+GamePlayScene::~GamePlayScene()
+{
+	delete player_;
+	delete wall_;
+}
+
 void GamePlayScene::Initialize()
 {
 	whiteGH = Novice::LoadTexture("white1x1.png");
 
-	pos_ = { 640.0f,360.0f };
-	width_ = 1280.0f;
-	height_ = 720.0f;
-
-	whiteCorners_ = PosUpdate(pos_, width_, height_);
-
 	player_ = new Player();
+
+	wall_ = new Wall();
+
+	wall_->Initialize();
+
+	scroll_ = 0.0f;
+
 }
 
 void GamePlayScene::Update(char keys[256], char preKeys[256])
 {
-	/*if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
-		isFinished_ = true;
-	}*/
-
-	whiteCorners_ = PosUpdate(pos_, width_, height_);
+	//if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
+	//	/*isFinished_ = true;*/
+	//}
 
 	player_->Update(keys,preKeys);
+
+	wall_->Update();
+
+	if (player_->GetPos().x>=640.0f) {
+		scroll_ += player_->GetSpeed();
+	}
+
+	for (int i = 0;i < 28;i++) {
+		if (HitBox(wall_->GetCorners(i), player_->GetCorners())) {
+			isFinished_ = true;
+		}
+	}
 }
 
 void GamePlayScene::Draw()
 {
-	player_->Draw();
+	player_->Draw(scroll_);
+
+	wall_->Draw(scroll_);
 }
 
 Corners GamePlayScene::PosUpdate(Vector2 pos, float width, float height)
