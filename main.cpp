@@ -103,8 +103,6 @@ void ChangeScene() {
 	switch (scene) {
 	case kTitle:
 		if (titleScene->IsFinished()) {
-
-
 			scene = Scene::kSelect;
 
 			delete titleScene;
@@ -119,7 +117,6 @@ void ChangeScene() {
 	case kSelect:
 
 		if (selectStageScene->IsFinished1()) {
-
 			scene = Scene::kPlay;
 
 			delete selectStageScene;
@@ -129,6 +126,7 @@ void ChangeScene() {
 			gameScene->Initialize();
 
 		}
+		break;
 
 	case kPlay:
 		if (gameScene->IsFinished()) {
