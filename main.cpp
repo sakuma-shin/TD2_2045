@@ -63,6 +63,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		ChangeScene();
 		UpdateScene();
+
 		///
 		/// ↑更新処理ここまで
 		///
