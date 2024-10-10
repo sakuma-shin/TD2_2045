@@ -125,6 +125,25 @@ void Player::Update(char* keys, char* preKeys) {
 }
 
 void Player::Draw() {
+	UINT color = 0;
+
+	if (pushTime_ <= 100) {
+		color = BLACK;
+	}
+	if (pushTime_ <= 80) {
+		color = RED;
+	}
+	if (pushTime_ <= 60) {
+		color = GREEN;
+	}
+	if (pushTime_ <= 40) {
+		color = BLUE;
+	}
+	if (pushTime_ <= 20) {
+		color = WHITE;
+	}
+	Novice::DrawBox(0, 700, 12 * pushTime_, 20, 0.0f, color, kFillModeSolid);
+
 	Novice::DrawQuad(int(playerCorner_.leftTop.x), int(playerCorner_.leftTop.y),
 		int(playerCorner_.leftDown.x), int(playerCorner_.leftDown.y),
 		int(playerCorner_.rightTop.x), int(playerCorner_.rightTop.y),
