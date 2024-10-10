@@ -157,6 +157,9 @@ void Player::Draw(float scroll) {
 		int(playerCorner_.rightTop.x-scroll), int(playerCorner_.rightTop.y),
 		int(playerCorner_.rightDown.x-scroll), int(playerCorner_.rightDown.y),
 		0, 0, 1, 1, textureHandle_, WHITE);
+
+	Novice::DrawLine(0, 700, 1280, 700, BLACK);
+
 }
 
 uint32_t Player::GetTime() {
