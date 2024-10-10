@@ -15,7 +15,6 @@ void Player::Initialize() {
 void Player::Update(char* keys, char* preKeys) {
 	// プレイヤーの位置を更新
 	playerPos_.x += moveSpeed_;
-	playerPos_.y -= playerJumpPower_;
 
 	// プレイヤーの四隅の座標を設定
 	playerCorner_ = {
@@ -68,17 +67,23 @@ void Player::Update(char* keys, char* preKeys) {
 		// ジャンプ力を減少（重力）
 		playerJumpPower_ -= downPower_;
 
+		if (!isHold_) {
+			playerPos_.y -= playerJumpPower_;
+		}
+
 		// 2段ジャンプがまだ実行されていない場合
 		if (!oneMoreJump_) {
 			// スペースキーが押されている場合、再度ジャンプの溜め処理
 			if (keys[DIK_SPACE]) {
 				isHold_ = true;
 				pushTime_ += 2;
-				downPower_ = 1; // 下降速度の変更
+				downPower_ = 0; // 下降速度の変更
+				moveSpeed_ = 1.0f;
 			}
 			// スペースキーが離された時の2段ジャンプ処理
 			else if (keys[DIK_SPACE] == 0 && preKeys[DIK_SPACE] && isHold_) {
 				isHold_ = false;
+				moveSpeed_ = 7.5f;
 				downPower_ = 3; // 下降速度をリセット
 
 				// 溜めた時間に応じて2段ジャンプ力を設定

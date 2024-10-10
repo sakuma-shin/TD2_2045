@@ -30,7 +30,6 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 	//	/*isFinished_ = true;*/
 	//}
 
-
 	player_->Update(keys,preKeys);
 
 	wall_->Update();
