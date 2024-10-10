@@ -76,7 +76,7 @@ void Player::Update(char* keys, char* preKeys) {
 			// スペースキーが押されている場合、再度ジャンプの溜め処理
 			if (keys[DIK_SPACE]) {
 				isHold_ = true;
-				pushTime_ += 2;
+				pushTime_ += 1;
 				downPower_ = 0; // 下降速度の変更
 				moveSpeed_ = 0;
 				if (pushTime_ >= 100) {
