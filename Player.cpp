@@ -117,14 +117,14 @@ void Player::Update(char* keys, char* preKeys) {
 		}
 	}
 
-	// 壁への当たり判定（画面端で移動方向を反転）
-	if (playerPos_.x + 10 >= 1280 || playerPos_.x - 10 <= 0) {
-		moveSpeed_ *= -1;  // 移動方向を反転
-	}
+	//// 壁への当たり判定（画面端で移動方向を反転）
+	//if (playerPos_.x + 10 >= 1280 || playerPos_.x - 10 <= 0) {
+	//	moveSpeed_ *= -1;  // 移動方向を反転
+	//}
 
 }
 
-void Player::Draw() {
+void Player::Draw(float scroll) {
 	UINT color = 0;
 
 	if (pushTime_ <= 100) {
@@ -144,10 +144,10 @@ void Player::Draw() {
 	}
 	Novice::DrawBox(0, 700, 12 * pushTime_, 20, 0.0f, color, kFillModeSolid);
 
-	Novice::DrawQuad(int(playerCorner_.leftTop.x), int(playerCorner_.leftTop.y),
-		int(playerCorner_.leftDown.x), int(playerCorner_.leftDown.y),
-		int(playerCorner_.rightTop.x), int(playerCorner_.rightTop.y),
-		int(playerCorner_.rightDown.x), int(playerCorner_.rightDown.y),
+	Novice::DrawQuad(int(playerCorner_.leftTop.x-scroll), int(playerCorner_.leftTop.y),
+		int(playerCorner_.leftDown.x-scroll), int(playerCorner_.leftDown.y),
+		int(playerCorner_.rightTop.x-scroll), int(playerCorner_.rightTop.y),
+		int(playerCorner_.rightDown.x-scroll), int(playerCorner_.rightDown.y),
 		0, 0, 1, 1, textureHandle_, WHITE);
 }
 
@@ -159,3 +159,15 @@ Corners Player::GetCorners()
 {
 	return playerCorner_;
 }
+
+Vector2 Player::GetPos()
+{
+	return playerPos_;
+}
+
+float Player::GetSpeed()
+{
+	return moveSpeed_;
+}
+
+

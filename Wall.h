@@ -8,7 +8,7 @@ public:
 
 	void Initialize();
 	void Update();
-	void Draw();
+	void Draw(float scroll);
 
 	void DrawQuad(Corners a, int imageGH, int imageWidth, int imageHeight, unsigned int color, float scroll);
 

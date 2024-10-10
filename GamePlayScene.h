@@ -22,7 +22,7 @@ public:
 
 	void DrawQuad(Corners a, int imageGH, int imageWidth, int imageHeight, unsigned int color, float scroll);
 
-	
+	float GetScroll() { return scroll_; }
 
 private:
 
@@ -42,6 +42,8 @@ private:
 	Player* player_ = nullptr;
 
 	Wall* wall_ = nullptr;
+
+	float scroll_ = 0.0f;
 
 };
 

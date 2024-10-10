@@ -9,10 +9,10 @@ void Wall::Update()
 {
 }
 
-void Wall::Draw()
+void Wall::Draw(float scroll)
 {
 	for (int i = 0;i <wallNum_ ;i++) {
-		DrawQuad(corners_[i], GH, 1, 1, WHITE, 0.0f);
+		DrawQuad(corners_[i], GH, 1, 1, WHITE, scroll);
 	}
 }
 
@@ -51,9 +51,9 @@ void Wall::Stage1Initialize()
 	//下の壁の位置
 	pos_[0].x =400.0f;
 	pos_[2].x = 600.0f;
-	pos_[4].x = 800.0f;
-	pos_[6].x = 1000.0f;
-	pos_[8].x = 1200.0f;
+	pos_[4].x = 1000.0f;
+	pos_[6].x = 1500.0f;
+	pos_[8].x = 2000.0f;
 
 	
 

@@ -20,6 +20,8 @@ void GamePlayScene::Initialize()
 
 	wall_->Initialize();
 
+	scroll_ = 0.0f;
+
 }
 
 void GamePlayScene::Update(char keys[256], char preKeys[256])
@@ -33,6 +35,10 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 
 	wall_->Update();
 
+	if (player_->GetPos().x>=640.0f) {
+		scroll_ += player_->GetSpeed();
+	}
+
 	for (int i = 0;i < 28;i++) {
 		if (HitBox(wall_->GetCorners(i), player_->GetCorners())) {
 			isFinished_ = true;
@@ -42,9 +48,9 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 
 void GamePlayScene::Draw()
 {
-	player_->Draw();
+	player_->Draw(scroll_);
 
-	wall_->Draw();
+	wall_->Draw(scroll_);
 }
 
 Corners GamePlayScene::PosUpdate(Vector2 pos, float width, float height)
