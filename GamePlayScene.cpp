@@ -15,9 +15,9 @@ void GamePlayScene::Initialize()
 
 void GamePlayScene::Update(char keys[256], char preKeys[256])
 {
-	if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
-		isFinished_ = true;
-	}
+	//if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
+	//	/*isFinished_ = true;*/
+	//}
 
 	whiteCorners_ = PosUpdate(pos_, width_, height_);
 
