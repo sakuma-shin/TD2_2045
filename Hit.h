@@ -3,11 +3,6 @@
 #include <Novice.h>
 #define _USE_MATH_DEFINES
 #include <cmath>
-#pragma once
-#pragma once
-#include <Novice.h>
-#define _USE_MATH_DEFINES
-#include <cmath>
 #include"math/Vector2.h"
 
 using namespace KamataEngine;
