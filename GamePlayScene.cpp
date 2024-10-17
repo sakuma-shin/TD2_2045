@@ -18,9 +18,26 @@ void GamePlayScene::Initialize()
 
 	wall_ = new Wall();
 
-	wall_->Initialize();
-
 	scroll_ = 0.0f;
+
+	switch (stage_) {
+		
+	case Stage::STAGE1:
+		goalPos = 3000.0f;
+		wall_->Stage1Initialize();
+		break;
+	case Stage::STAGE2:
+		goalPos = 6000.0f;
+		wall_->Stage2Initialize();
+
+		break;
+
+	case Stage::STAGE3:
+		goalPos = 6500.0f;
+		wall_->Stage3Initialize();
+
+		break;
+	}
 
 }
 
@@ -40,9 +57,18 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 
 	for (int i = 0;i < 28;i++) {
 		if (HitBox(wall_->GetCorners(i), player_->GetCorners())) {
-			isFinished_ = true;
+			//isFinished_ = true;
+			isDead_ = true;
 		}
 	}
+
+	if (player_->GetPos().x >= goalPos) {
+
+		isCleared_ = true;
+	}
+
+	
+
 }
 
 void GamePlayScene::Draw()

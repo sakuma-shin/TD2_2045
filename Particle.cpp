@@ -24,3 +24,4 @@ void Particle::Update() {
 void Particle::Draw() {
 	Novice::DrawTriangle(int(position_.x), int(position_.y + 5), int(position_.x + 2.5f), int(position_.y - 2.5f), int(position_.x - 2.5f), int(position_.y - 2.5f), WHITE, kFillModeSolid);
 }
+

@@ -5,18 +5,27 @@
 #include"Wall.h"
 #include"GamePlayScene.h"
 #include"TitleScene.h"
+#include "SelectStageScene.h"
+#include "ClearScene.h"
+#include "OverScene.h"
 
 enum Scene {
 
 	kUnknown,
+	kSelect,
 	kTitle,
-	kPlay
+	kPlay,
+	kClear,
+	kOver
 };
 
 Scene scene = kUnknown;
 
 GamePlayScene* gameScene = nullptr;
 TitleScene* titleScene = nullptr;
+SelectStageScene* selectStageScene = nullptr;
+ClearScene* clearScene = nullptr;
+OverScene* overScene = nullptr;
 
 void ChangeScene();
 void UpdateScene();
@@ -39,12 +48,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	scene = kTitle;
 
-	gameScene = new GamePlayScene();
-	gameScene->Initialize();
 
 	titleScene = new TitleScene();
 	titleScene->Initialize();
 
+	selectStageScene = new SelectStageScene();
+	selectStageScene->initialize();
+
+	clearScene = new ClearScene();
+	clearScene->Initialize();
+
+	overScene = new OverScene();
+	overScene->Initialize();
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -96,15 +111,54 @@ void ChangeScene() {
 	switch (scene) {
 	case kTitle:
 		if (titleScene->IsFinished()) {
-
-
-			scene = Scene::kPlay;
+			scene = Scene::kSelect;
 
 			delete titleScene;
 			titleScene = nullptr;
 
+			selectStageScene = new SelectStageScene();
+			selectStageScene->initialize();
+
+		}
+		break;
+
+	case kSelect:
+
+		if (selectStageScene->IsFinished1()) {
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
 			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE1);
 			gameScene->Initialize();
+
+			
+
+		}else if (selectStageScene->IsFinished2()) {
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
+			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE2);
+			gameScene->Initialize();
+
+
+
+		}else if (selectStageScene->IsFinished3()) {
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
+			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE3);
+			gameScene->Initialize();
+
+
 
 		}
 		break;
@@ -119,8 +173,55 @@ void ChangeScene() {
 			titleScene = new TitleScene();
 			titleScene->Initialize();
 
+		} else if (gameScene->IsCleared()) {
+
+			scene = Scene::kClear;
+
+			delete gameScene;
+			gameScene = nullptr;
+
+			clearScene = new ClearScene();
+			clearScene->Initialize();
+
+		} else if (gameScene->IsDead()) {
+
+			scene = Scene::kOver;
+
+			delete gameScene;
+			gameScene = nullptr;
+
+			overScene = new OverScene();
+			overScene->Initialize();
+
 		}
 		break;
+
+	case kClear:
+		if (clearScene->IsFinished()) {
+			scene = Scene::kTitle;
+
+			delete clearScene;
+			clearScene = nullptr;
+
+			titleScene = new TitleScene();
+			titleScene->Initialize();
+
+		}
+		break;
+
+	case kOver:
+		if (overScene->IsFinished()) {
+			scene = kTitle;
+
+			delete overScene;
+			overScene = nullptr;
+
+			titleScene = new TitleScene();
+			titleScene->Initialize();
+
+		}
+		break;
+
 	}
 }
 
@@ -130,9 +231,22 @@ void UpdateScene() {
 		titleScene->Update(keys, preKeys);
 		break;
 
+	case kSelect:
+		selectStageScene->Update(keys, preKeys);
+		break;
+
 	case kPlay:
 		gameScene->Update(keys, preKeys);
 		break;
+
+	case kClear:
+		clearScene->Update(keys, preKeys);
+		break;
+
+	case kOver:
+		overScene->Update(keys, preKeys);
+		break;
+
 	}
 }
 
@@ -142,9 +256,24 @@ void DrawScene() {
 		titleScene->Draw();
 		break;
 
+	case kSelect:
+		selectStageScene->Draw();
+
+
+		break;
+
 	case kPlay:
 		gameScene->Draw();
+	break;
+	
+	case kClear:
+		clearScene->Draw();
 		break;
+
+	case kOver:
+		overScene->Draw();
+		break;
+
 	}
 }
 
