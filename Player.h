@@ -58,7 +58,7 @@ private:
 
 	Corners playerCorner_;
 
-	uint32_t downPower_ = 3;
+	uint32_t downPower_ = 2;
 
 	bool isHold_ = false;
 
