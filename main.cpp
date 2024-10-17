@@ -6,6 +6,7 @@
 #include"GamePlayScene.h"
 #include"TitleScene.h"
 #include "SelectStageScene.h"
+#include "ClearScene.h"
 
 enum Scene {
 
@@ -21,6 +22,7 @@ Scene scene = kUnknown;
 GamePlayScene* gameScene = nullptr;
 TitleScene* titleScene = nullptr;
 SelectStageScene* selectStageScene = nullptr;
+ClearScene* clearScene = nullptr;
 
 void ChangeScene();
 void UpdateScene();
@@ -52,6 +54,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	selectStageScene = new SelectStageScene();
 	selectStageScene->initialize();
 
+	clearScene = new ClearScene();
+	clearScene->Initialize();
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -138,6 +142,15 @@ void ChangeScene() {
 			titleScene = new TitleScene();
 			titleScene->Initialize();
 
+		} else if (gameScene->IsCleared()) {
+
+			scene = Scene::kClear;
+
+			delete gameScene;
+			gameScene = nullptr;
+
+			clearScene = new ClearScene();
+			clearScene->Initialize();
 		}
 		break;
 	}
@@ -174,6 +187,10 @@ void DrawScene() {
 
 	case kPlay:
 		gameScene->Draw();
+	break;
+	
+	case kClear:
+		clearScene->Draw();
 		break;
 	}
 }
