@@ -153,6 +153,19 @@ void ChangeScene() {
 			clearScene->Initialize();
 		}
 		break;
+
+	case kClear:
+		if (clearScene->IsFinished()) {
+			scene = Scene::kTitle;
+
+			delete clearScene;
+			clearScene = nullptr;
+
+			titleScene = new TitleScene();
+			titleScene->Initialize();
+
+		}
+		break;
 	}
 }
 
@@ -171,6 +184,7 @@ void UpdateScene() {
 		break;
 
 	case kClear:
+		clearScene->Update(keys, preKeys);
 		break;
 	}
 }

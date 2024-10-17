@@ -10,7 +10,7 @@ public:
 
 	void Draw();
 
-	bool IsCleard() { return isFinished_; }
+	bool IsFinished() { return isFinished_; }
 
 private:
 
