@@ -4,7 +4,15 @@
 #include <Novice.h>
 #include <KamataEngine.h>
 #include "Hit.h"
-#include "Particle.h"
+#include "Color.h"
+
+struct Particle {
+	Vector2 pos;
+	Vector2 vel;
+	int deathTime;
+	bool isDead;
+	unsigned int alpha;
+};
 
 class Player
 {
@@ -26,6 +34,12 @@ public:
 	Vector2 GetPos();
 
 	float GetSpeed();
+
+	void ParticleInitialize(Vector2 position);
+
+	void ParticleUpdate();
+
+	void ParticleDraw(float scroll);
 private:
 
 	float startJumpPower_ = 0;
@@ -54,5 +68,11 @@ private:
 
 	bool isGround_ = true;
 
-	Particle* particle[15];
+	bool isParticle = false;
+
+	int particleNum;
+
+	Particle particle[15];
+
+	Color* color_ = nullptr;
 };

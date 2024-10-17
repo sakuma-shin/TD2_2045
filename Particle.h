@@ -1,11 +1,12 @@
 #pragma once
 #include <math/Vector2.h>
+#include <cstdint>
 
 using namespace KamataEngine;
 
 class Particle
 {
-private:
+public:
 	Particle();
 
 	~Particle();
@@ -16,9 +17,10 @@ private:
 
 	void Draw();
 
-public:
-	Vector2 position_;
+private:
+	Vector2 position_ = { 0,0 };
 
-	Vector2 velocity_;
+	Vector2 velocity_ = { 0,0 };
+
 };
 

@@ -18,8 +18,9 @@ void Particle::Initialize(Vector2 position) {
 void Particle::Update() {
 	position_.x += velocity_.x;
 	position_.y += velocity_.y;
+
 }
 
 void Particle::Draw() {
-	Novice::DrawTriangle(position_.x, position_.y, position_.x, position_.y, position_.x, position_.y, WHITE, kFillModeSolid);
+	Novice::DrawTriangle(int(position_.x), int(position_.y + 5), int(position_.x + 2.5f), int(position_.y - 2.5f), int(position_.x - 2.5f), int(position_.y - 2.5f), WHITE, kFillModeSolid);
 }
