@@ -20,16 +20,21 @@ void GamePlayScene::Initialize()
 
 	scroll_ = 0.0f;
 
-	switch (stage) {
-	case STAGE1:
+	switch (stage_) {
+		
+	case Stage::STAGE1:
 		goalPos = 3000.0f;
 		wall_->Stage1Initialize();
 		break;
-	case STAGE2:
+	case Stage::STAGE2:
+		goalPos = 6000.0f;
+		wall_->Stage2Initialize();
 
 		break;
 
-	case STAGE3:
+	case Stage::STAGE3:
+
+		wall_->Stage3Initialize();
 
 		break;
 	}
