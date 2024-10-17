@@ -33,7 +33,7 @@ void GamePlayScene::Initialize()
 		break;
 
 	case Stage::STAGE3:
-		goalPos = 7700.0f;
+		goalPos = 6500.0f;
 		wall_->Stage3Initialize();
 
 		break;
