@@ -45,8 +45,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	scene = kTitle;
 
-	gameScene = new GamePlayScene();
-	gameScene->Initialize();
 
 	titleScene = new TitleScene();
 	titleScene->Initialize();
