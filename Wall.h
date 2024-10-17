@@ -30,7 +30,7 @@ private:
 
 	int wallNum_ = 0;
 
-	int GH = Novice::LoadTexture("white1x1.png");
+	int GH = Novice::LoadTexture("./Resources/wall50.png");
 
 
 };

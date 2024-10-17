@@ -14,7 +14,7 @@ void Wall::Update()
 void Wall::Draw(float scroll)
 {
 	for (int i = 0;i <wallNum_ ;i++) {
-		DrawQuad(corners_[i], GH, 1, 1, WHITE, scroll);
+		DrawQuad(corners_[i], GH, 10, 50, WHITE, scroll);
 	}
 }
 
