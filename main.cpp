@@ -123,7 +123,34 @@ void ChangeScene() {
 			selectStageScene = nullptr;
 
 			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE1);
 			gameScene->Initialize();
+
+			
+
+		}else if (selectStageScene->IsFinished2()) {
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
+			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE2);
+			gameScene->Initialize();
+
+
+
+		}else if (selectStageScene->IsFinished3()) {
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
+			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE3);
+			gameScene->Initialize();
+
+
 
 		}
 		break;
@@ -170,6 +197,8 @@ void DrawScene() {
 
 	case kSelect:
 		selectStageScene->Draw();
+
+
 		break;
 
 	case kPlay:
