@@ -90,7 +90,7 @@ void Wall::Stage2Initialize()
 	}
 
 	//下の壁の高さ
-	height_[0] = 150.0f;
+	height_[0] = 50.0f;
 	height_[2] = 240.0f;
 	height_[4] = 320.0f;
 	height_[6] = 180.0f;
