@@ -7,7 +7,7 @@ void ClearScene::Initialize()
 void ClearScene::Update(char keys[256], char preKeys[256])
 {
 
-	if (keys[DIK_RETURN] && preKeys[DIK_RETURN]) {
+	if (keys[DIK_SPACE] && preKeys[DIK_SPACE]) {
 
 		isFinished_ = true;
 

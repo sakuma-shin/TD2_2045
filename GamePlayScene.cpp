@@ -57,12 +57,13 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 
 	for (int i = 0;i < 28;i++) {
 		if (HitBox(wall_->GetCorners(i), player_->GetCorners())) {
-			isFinished_ = true;
+			//isFinished_ = true;
+			isDead_ = true;
 		}
 	}
 
 	if (player_->GetPos().x >= goalPos) {
-		//isFinished_ = true;
+
 		isCleared_ = true;
 	}
 

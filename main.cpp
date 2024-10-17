@@ -7,6 +7,7 @@
 #include"TitleScene.h"
 #include "SelectStageScene.h"
 #include "ClearScene.h"
+#include "OverScene.h"
 
 enum Scene {
 
@@ -14,7 +15,8 @@ enum Scene {
 	kSelect,
 	kTitle,
 	kPlay,
-	kClear
+	kClear,
+	kOver
 };
 
 Scene scene = kUnknown;
@@ -23,6 +25,7 @@ GamePlayScene* gameScene = nullptr;
 TitleScene* titleScene = nullptr;
 SelectStageScene* selectStageScene = nullptr;
 ClearScene* clearScene = nullptr;
+OverScene* overScene = nullptr;
 
 void ChangeScene();
 void UpdateScene();
@@ -56,6 +59,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	clearScene = new ClearScene();
 	clearScene->Initialize();
+
+	overScene = new OverScene();
+	overScene->Initialize();
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -178,6 +184,17 @@ void ChangeScene() {
 
 			clearScene = new ClearScene();
 			clearScene->Initialize();
+
+		} else if (gameScene->IsDead()) {
+
+			scene = Scene::kOver;
+
+			delete gameScene;
+			gameScene = nullptr;
+
+			overScene = new OverScene();
+			overScene->Initialize();
+
 		}
 		break;
 
@@ -193,6 +210,20 @@ void ChangeScene() {
 
 		}
 		break;
+
+	case kOver:
+		if (overScene->IsFinished()) {
+			scene = kTitle;
+
+			delete overScene;
+			overScene = nullptr;
+
+			titleScene = new TitleScene();
+			titleScene->Initialize();
+
+		}
+		break;
+
 	}
 }
 
@@ -213,6 +244,11 @@ void UpdateScene() {
 	case kClear:
 		clearScene->Update(keys, preKeys);
 		break;
+
+	case kOver:
+		overScene->Update(keys, preKeys);
+		break;
+
 	}
 }
 
@@ -235,6 +271,11 @@ void DrawScene() {
 	case kClear:
 		clearScene->Draw();
 		break;
+
+	case kOver:
+		overScene->Draw();
+		break;
+
 	}
 }
 
