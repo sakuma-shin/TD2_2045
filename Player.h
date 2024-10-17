@@ -4,6 +4,7 @@
 #include <Novice.h>
 #include <KamataEngine.h>
 #include "Hit.h"
+#include "Particle.h"
 
 class Player
 {
@@ -52,4 +53,6 @@ private:
 	bool oneMoreJump_ = false;
 
 	bool isGround_ = true;
+
+	Particle* particle[15];
 };

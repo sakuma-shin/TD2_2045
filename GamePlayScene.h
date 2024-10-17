@@ -28,16 +28,22 @@ public:
 
 	float GetScroll() { return scroll_; }
 
-private:
-
-
-	enum Stage {
+	enum class Stage {
 		STAGE1,
 		STAGE2,
 		STAGE3
 	};
 
-	Stage stage = STAGE1;
+
+	void SetStage(Stage stage) { stage_ = stage; }
+
+	
+private:
+
+
+	
+
+	Stage stage_ = Stage::STAGE1;
 
 	bool isFinished_ = false;
 

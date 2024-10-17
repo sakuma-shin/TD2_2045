@@ -94,16 +94,16 @@ void Player::Update(char* keys, char* preKeys) {
 					startJumpPower_ = 30;
 				}
 				else if (pushTime_ > 20 && pushTime_ <= 40) {
-					startJumpPower_ = 33;
-				}
-				else if (pushTime_ > 40 && pushTime_ <= 60) {
 					startJumpPower_ = 36;
 				}
+				else if (pushTime_ > 40 && pushTime_ <= 60) {
+					startJumpPower_ = 42;
+				}
 				else if (pushTime_ > 60 && pushTime_ <= 80) {
-					startJumpPower_ = 39;
+					startJumpPower_ = 48;
 				}
 				else if (pushTime_ > 80 && pushTime_ <= 100) {
-					startJumpPower_ = 42;
+					startJumpPower_ = 54;
 				}
 
 				// 2段ジャンプ力をプレイヤーに反映
