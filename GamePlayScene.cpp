@@ -57,7 +57,8 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 	}
 
 	if (player_->GetPos().x >= goalPos) {
-		isFinished_ = true;
+		//isFinished_ = true;
+		isCleared_ = true;
 	}
 
 	

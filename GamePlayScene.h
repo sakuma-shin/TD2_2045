@@ -20,6 +20,8 @@ public:
 
 	bool IsFinished() { return isFinished_; }
 
+	bool IsCleared() { return isCleared_; }
+
 	void DrawQuad(Corners a, int imageGH, int imageWidth, int imageHeight, unsigned int color, float scroll);
 
 	float GetScroll() { return scroll_; }
@@ -36,6 +38,8 @@ private:
 	Stage stage = STAGE1;
 
 	bool isFinished_ = false;
+
+	bool isCleared_ = false;
 
 	int whiteGH = 0;
 
