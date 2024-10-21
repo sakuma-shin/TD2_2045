@@ -161,7 +161,7 @@ void Player::Draw(float scroll) {
 	if (pushTime_ <= 20) {
 		color = WHITE;
 	}
-	Novice::DrawBox(0, 700, 12 * pushTime_, 20, 0.0f, color, kFillModeSolid);
+	Novice::DrawBox(0, 700, int(12.8f * pushTime_), 20, 0.0f, color, kFillModeSolid);
 
 	Novice::DrawQuad(int(playerCorner_.leftTop.x - scroll), int(playerCorner_.leftTop.y),
 		int(playerCorner_.leftDown.x - scroll), int(playerCorner_.leftDown.y),
