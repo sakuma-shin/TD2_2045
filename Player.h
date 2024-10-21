@@ -27,6 +27,10 @@ public:
 
 	void Draw(float scroll);
 
+	/// <summary>
+	/// getter
+	/// </summary>
+
 	uint32_t GetTime();
 
 	Corners GetCorners();
@@ -35,6 +39,10 @@ public:
 
 	float GetSpeed();
 
+	/// <summary>
+	/// Particle
+	/// </summary>
+
 	void ParticleInitialize(Vector2 position);
 
 	void ParticleUpdate();
@@ -42,23 +50,13 @@ public:
 	void ParticleDraw(float scroll);
 private:
 
-	float startJumpPower_ = 0;
-
-	float playerJumpPower_ = 0;
-
 	uint32_t textureHandle_ = Novice::LoadTexture("./NoviceResources/white1x1.png");
-
-	uint32_t pushTime_ = 0;
-
-	const uint32_t maxPushTime_ = 100;;
-
-	float moveSpeed_ = 7.5f;
 
 	Vector2 playerPos_ = { 20,690 };
 
 	Corners playerCorner_;
 
-	uint32_t downPower_ = uint32_t(2.5f);
+	bool isGround_ = true;
 
 	bool isHold_ = false;
 
@@ -66,7 +64,21 @@ private:
 
 	bool oneMoreJump_ = false;
 
-	bool isGround_ = true;
+	float startJumpPower_ = 0;
+
+	float playerJumpPower_ = 0;
+
+	uint32_t downPower_ = uint32_t(2.5f);
+
+	const uint32_t maxPushTime_ = 100;;
+
+	uint32_t pushTime_ = 0;
+
+	float moveSpeed_ = 7.5f;
+
+	/// <summary>
+	/// Particle
+	/// </summary>
 
 	bool isParticle = false;
 
