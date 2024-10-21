@@ -96,7 +96,7 @@ void Player::Update(char* keys, char* preKeys) {
 				isHold_ = false;
 				ParticleInitialize(playerPos_);
 				moveSpeed_ = 7.5f;
-				downPower_ = 3; // 下降速度をリセット
+				downPower_ = uint32_t(2.5f); // 下降速度をリセット
 
 				// 溜めた時間に応じて2段ジャンプ力を設定
 				if (pushTime_ <= 20) {
@@ -132,19 +132,13 @@ void Player::Update(char* keys, char* preKeys) {
 			playerPos_.y = 690;  // プレイヤー位置をリセット
 			startJumpPower_ = 0;
 			playerJumpPower_ = 0;
-			downPower_ = 3;  // 重力のリセット
+			downPower_ = uint32_t(2.5f);  // 重力のリセット
 			oneMoreJump_ = false; // 2段ジャンプリセット
 			isJump_ = false; // ジャンプ終了
 			isGround_ = true;  // 地面に着地
 			isParticle = false;
 		}
 	}
-
-	//// 壁への当たり判定（画面端で移動方向を反転）
-	//if (playerPos_.x + 10 >= 1280 || playerPos_.x - 10 <= 0) {
-	//	moveSpeed_ *= -1;  // 移動方向を反転
-	//}
-
 }
 
 void Player::Draw(float scroll) {
