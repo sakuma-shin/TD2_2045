@@ -42,23 +42,23 @@ void Player::Update(char* keys, char* preKeys) {
 			ParticleInitialize(playerPos_);
 			// 溜めた時間に応じてジャンプ力を設定
 			if (pushTime_ <= 20) {
-				startJumpPower_ = 30;
+				startJumpPower_ = 20;
 				particleNum = 3;
 			}
 			else if (pushTime_ > 20 && pushTime_ <= 40) {
-				startJumpPower_ = 33;
+				startJumpPower_ = 24;
 				particleNum = 6;
 			}
 			else if (pushTime_ > 40 && pushTime_ <= 60) {
-				startJumpPower_ = 36;
+				startJumpPower_ = 28;
 				particleNum = 9;
 			}
 			else if (pushTime_ > 60 && pushTime_ <= 80) {
-				startJumpPower_ = 39;
+				startJumpPower_ = 32;
 				particleNum = 12;
 			}
 			else if (pushTime_ > 80 && pushTime_ <= 100) {
-				startJumpPower_ = 42;
+				startJumpPower_ = 36;
 				particleNum = 15;
 			}
 
@@ -96,27 +96,27 @@ void Player::Update(char* keys, char* preKeys) {
 				isHold_ = false;
 				ParticleInitialize(playerPos_);
 				moveSpeed_ = 7.5f;
-				downPower_ = uint32_t(2.5f); // 下降速度をリセット
+				downPower_ = 1; // 下降速度をリセット
 
 				// 溜めた時間に応じて2段ジャンプ力を設定
 				if (pushTime_ <= 20) {
-					startJumpPower_ = 30;
+					startJumpPower_ = 20;
 					particleNum = 3;
 				}
 				else if (pushTime_ > 20 && pushTime_ <= 40) {
-					startJumpPower_ = 33;
+					startJumpPower_ = 24;
 					particleNum = 6;
 				}
 				else if (pushTime_ > 40 && pushTime_ <= 60) {
-					startJumpPower_ = 36;
+					startJumpPower_ = 28;
 					particleNum = 9;
 				}
 				else if (pushTime_ > 60 && pushTime_ <= 80) {
-					startJumpPower_ = 39;
+					startJumpPower_ = 32;
 					particleNum = 12;
 				}
 				else if (pushTime_ > 80 && pushTime_ <= 100) {
-					startJumpPower_ = 42;
+					startJumpPower_ = 36;
 					particleNum = 15;
 				}
 
@@ -132,7 +132,7 @@ void Player::Update(char* keys, char* preKeys) {
 			playerPos_.y = 690;  // プレイヤー位置をリセット
 			startJumpPower_ = 0;
 			playerJumpPower_ = 0;
-			downPower_ = uint32_t(2.5f);  // 重力のリセット
+			downPower_ = 1;  // 重力のリセット
 			oneMoreJump_ = false; // 2段ジャンプリセット
 			isJump_ = false; // ジャンプ終了
 			isGround_ = true;  // 地面に着地
