@@ -68,7 +68,7 @@ private:
 
 	float playerJumpPower_ = 0;
 
-	uint32_t downPower_ = uint32_t(2.5f);
+	uint32_t downPower_ = 1;
 
 	const uint32_t maxPushTime_ = 100;;
 
