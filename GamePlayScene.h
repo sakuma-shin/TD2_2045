@@ -29,6 +29,7 @@ public:
 	float GetScroll() { return scroll_; }
 
 	enum class Stage {
+		STAGE0,
 		STAGE1,
 		STAGE2,
 		STAGE3
