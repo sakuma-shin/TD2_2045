@@ -22,6 +22,9 @@ void GamePlayScene::Initialize()
 
 	switch (stage_) {
 		
+	case Stage::STAGE0:
+		goalPos = 3000.0f;
+		break;
 	case Stage::STAGE1:
 		goalPos = 3000.0f;
 		wall_->Stage1Initialize();

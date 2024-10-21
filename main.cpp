@@ -160,6 +160,17 @@ void ChangeScene() {
 
 
 
+		} else if (selectStageScene->IsFinished()) {
+
+			scene = Scene::kPlay;
+
+			delete selectStageScene;
+			selectStageScene = nullptr;
+
+			gameScene = new GamePlayScene();
+			gameScene->SetStage(GamePlayScene::Stage::STAGE0);
+			gameScene->Initialize();
+
 		}
 		break;
 

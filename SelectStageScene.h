@@ -10,6 +10,8 @@ public:
 
 	void Draw();
 
+	bool IsFinished() { return isFinished_; }
+
 	bool IsFinished1() { return isFinished1_; }
 
 	bool IsFinished2() { return isFinished2_; }
@@ -24,5 +26,6 @@ public:
 
 	bool isFinished3_ = false;
 
+	bool isFinished_ = false;
 
 };
