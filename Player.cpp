@@ -46,19 +46,19 @@ void Player::Update(char* keys, char* preKeys) {
 				particleNum = 3;
 			}
 			else if (pushTime_ > 20 && pushTime_ <= 40) {
-				startJumpPower_ = 36;
+				startJumpPower_ = 33;
 				particleNum = 6;
 			}
 			else if (pushTime_ > 40 && pushTime_ <= 60) {
-				startJumpPower_ = 42;
+				startJumpPower_ = 36;
 				particleNum = 9;
 			}
 			else if (pushTime_ > 60 && pushTime_ <= 80) {
-				startJumpPower_ = 48;
+				startJumpPower_ = 39;
 				particleNum = 12;
 			}
 			else if (pushTime_ > 80 && pushTime_ <= 100) {
-				startJumpPower_ = 54;
+				startJumpPower_ = 42;
 				particleNum = 15;
 			}
 
@@ -104,19 +104,19 @@ void Player::Update(char* keys, char* preKeys) {
 					particleNum = 3;
 				}
 				else if (pushTime_ > 20 && pushTime_ <= 40) {
-					startJumpPower_ = 36;
+					startJumpPower_ = 33;
 					particleNum = 6;
 				}
 				else if (pushTime_ > 40 && pushTime_ <= 60) {
-					startJumpPower_ = 42;
+					startJumpPower_ = 36;
 					particleNum = 9;
 				}
 				else if (pushTime_ > 60 && pushTime_ <= 80) {
-					startJumpPower_ = 48;
+					startJumpPower_ = 39;
 					particleNum = 12;
 				}
 				else if (pushTime_ > 80 && pushTime_ <= 100) {
-					startJumpPower_ = 54;
+					startJumpPower_ = 42;
 					particleNum = 15;
 				}
 
