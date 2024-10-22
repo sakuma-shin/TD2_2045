@@ -23,20 +23,20 @@ void GamePlayScene::Initialize()
 	switch (stage_) {
 		
 	case Stage::STAGE0:
-		goalPos = 3000.0f;
+		goalPos = 8600.0f;
 		break;
 	case Stage::STAGE1:
-		goalPos = 3000.0f;
+		goalPos = 3000.0f*1.3;
 		wall_->Stage1Initialize();
 		break;
 	case Stage::STAGE2:
-		goalPos = 6000.0f;
+		goalPos = 8100.0f;
 		wall_->Stage2Initialize();
 
 		break;
 
 	case Stage::STAGE3:
-		goalPos = 6500.0f;
+		goalPos = 6500.0f*1.8f;
 		wall_->Stage3Initialize();
 
 		break;
@@ -54,7 +54,7 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 
 	wall_->Update();
 
-	if (player_->GetPos().x>=640.0f) {
+	if (player_->GetPos().x>=320.0f) {
 		scroll_ += player_->GetSpeed();
 	}
 

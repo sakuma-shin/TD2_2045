@@ -32,5 +32,6 @@ private:
 
 	int GH = Novice::LoadTexture("./Resources/wall50.png");
 
-
+	float debugWidth = 1.3f;
+	float debugDistance = 0.8f;
 };
