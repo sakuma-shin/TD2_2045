@@ -89,4 +89,7 @@ private:
 	Particle particle[15];
 
 	Color* color_ = nullptr;
+
+	int redParticle = Novice::LoadTexture("./Resources/particle.png");
+	int blueParticle = Novice::LoadTexture("./Resources/blueParticle.png");
 };

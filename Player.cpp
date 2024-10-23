@@ -226,7 +226,8 @@ void Player::ParticleUpdate() {
 void Player::ParticleDraw(float scroll) {
 	for (int i = 0; i < particleNum; i++) {
 		if (!particle[i].isDead) {
-			Novice::DrawTriangle(int(particle[i].pos.x - scroll), int(particle[i].pos.y + 10), int(particle[i].pos.x + 5 - scroll), int(particle[i].pos.y - 5), int(particle[i].pos.x - 5 - scroll), int(particle[i].pos.y - 5), color_->GetColor(255, 255, 255, particle[i].alpha), kFillModeSolid);
+			Novice::DrawSprite(int(particle[i].pos.x - scroll), int(particle[i].pos.y + 10), redParticle, 0.5f, 0.5f, 0.0f, color_->GetColor(255, 255, 255, particle[i].alpha));
+			//Novice::DrawTriangle(int(particle[i].pos.x - scroll), int(particle[i].pos.y + 10), int(particle[i].pos.x + 5 - scroll), int(particle[i].pos.y - 5), int(particle[i].pos.x - 5 - scroll), int(particle[i].pos.y - 5), color_->GetColor(255, 255, 255, particle[i].alpha), kFillModeSolid);
 		}
 	}
 }
