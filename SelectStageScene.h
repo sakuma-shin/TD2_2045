@@ -20,7 +20,12 @@ public:
 
 private:
 
-	int GH = Novice::LoadTexture("./Resources/stageSelect.png");
+	int explaGH = Novice::LoadTexture("./Resources/explanation.png");
+	int selectGH = Novice::LoadTexture("./Resources/stageSelect.png");
+
+	int GH = selectGH;		
+	
+	
 
 	bool isFinished1_ = false;
 

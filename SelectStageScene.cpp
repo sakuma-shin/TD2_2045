@@ -6,21 +6,26 @@ void SelectStageScene::initialize()
 
 void SelectStageScene::Update(char keys[256], char preKeys[256])
 {
-
-	if (keys[DIK_1] && !preKeys[DIK_1]) {
-		isFinished1_ = true;
-
-
-	} else if (keys[DIK_2] && !preKeys[DIK_2]) {
-		isFinished2_ = true;
+	if (GH == selectGH) {
+		if (keys[DIK_1] && !preKeys[DIK_1]) {
+			isFinished1_ = true;
 
 
-	} else if (keys[DIK_3] && !preKeys[DIK_3]) {
-		isFinished3_ = true;
+		} else if (keys[DIK_2] && !preKeys[DIK_2]) {
+			isFinished2_ = true;
 
-	} else if (keys[DIK_0] && !preKeys[DIK_0]) {
-		isFinished_ = true;
 
+		} else if (keys[DIK_3] && !preKeys[DIK_3]) {
+			isFinished3_ = true;
+
+		} else if (keys[DIK_0] && !preKeys[DIK_0]) {
+			isFinished_ = true;
+
+		} else if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
+			GH = explaGH;
+		}
+	} else if (keys[DIK_SPACE] && !preKeys[DIK_SPACE]) {
+		GH = selectGH;
 	}
 }
 

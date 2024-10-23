@@ -24,7 +24,7 @@ void GamePlayScene::Initialize()
 	switch (stage_) {
 
 	case Stage::STAGE0:
-		goalPos = 8600.0f;
+		goalPos = 2000.0f;
 		bgColor_ = WHITE;
 		break;
 	case Stage::STAGE1:
