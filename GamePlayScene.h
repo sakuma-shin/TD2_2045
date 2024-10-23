@@ -62,5 +62,12 @@ private:
 
 	float goalPos = 1000000.0f;
 
+	int bgGH = Novice::LoadTexture("./Resources/backGround.png");
+
+	Vector2 bgPos = { 0.0f,0.0f };
+	Vector2 bgPos2 = { 1280.0f,00.0f };
+
+	unsigned int bgColor_ = WHITE;
+
 };
 
