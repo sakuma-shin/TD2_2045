@@ -20,27 +20,33 @@ void GamePlayScene::Initialize()
 
 	scroll_ = 0.0f;
 
+
 	switch (stage_) {
-		
+
 	case Stage::STAGE0:
 		goalPos = 8600.0f;
+		bgColor_ = WHITE;
 		break;
 	case Stage::STAGE1:
-		goalPos = 3000.0f*1.3;
+		goalPos = 3000.0f * 1.3;
 		wall_->Stage1Initialize();
+		bgColor_ = WHITE;
 		break;
 	case Stage::STAGE2:
 		goalPos = 8100.0f;
 		wall_->Stage2Initialize();
-
+		bgColor_ = WHITE;
 		break;
 
 	case Stage::STAGE3:
-		goalPos = 6500.0f*1.8f;
+		goalPos = 6500.0f * 1.8f;
 		wall_->Stage3Initialize();
-
+		bgColor_ = 0x1e90ffff;
 		break;
 	}
+
+
+
 
 }
 
@@ -50,13 +56,14 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 	//	/*isFinished_ = true;*/
 	//}
 
-	player_->Update(keys,preKeys);
+	player_->Update(keys, preKeys);
 
 	wall_->Update();
 
-	if (player_->GetPos().x>=320.0f) {
+	if (player_->GetPos().x >= 320.0f) {
 		scroll_ += player_->GetSpeed();
 	}
+
 
 	for (int i = 0;i < 28;i++) {
 		if (HitBox(wall_->GetCorners(i), player_->GetCorners())) {
@@ -70,15 +77,32 @@ void GamePlayScene::Update(char keys[256], char preKeys[256])
 		isCleared_ = true;
 	}
 
-	
+
+	if ((bgPos.x + 1280.0f)-scroll_ <= 0.0f) {
+		bgPos.x += 2560.0f;
+	}
+
+	if ((bgPos2.x + 1280.0f)-scroll_ <= 0.0f) {
+		bgPos2.x += 2560.0f;
+	}
+
 
 }
 
 void GamePlayScene::Draw()
 {
+
+	Novice::DrawSprite(int(bgPos.x - scroll_), int(bgPos.y), bgGH, 1.0f, 1.0f, 0.0f, bgColor_);
+	Novice::DrawSprite(int(bgPos2.x - scroll_), int(bgPos2.y), bgGH, 1.0f, 1.0f, 0.0f, bgColor_);
+
+
 	player_->Draw(scroll_);
 
 	wall_->Draw(scroll_);
+
+	Novice::ScreenPrintf(15, 15, "bg1.pos.x:%f", bgPos.x-scroll_);
+	Novice::ScreenPrintf(15, 30, "bg2.pos.x:%f", bgPos2.x-scroll_);
+
 }
 
 Corners GamePlayScene::PosUpdate(Vector2 pos, float width, float height)
