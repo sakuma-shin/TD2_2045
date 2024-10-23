@@ -224,14 +224,14 @@ void Wall::Stage3Initialize()
 	for (int i = 0;i < wallNum_;i++) {
 		pos_[i].y = 700.0f - height_[i] / 2.0f;
 		width_[i] = 30.0f/**debugWidth*/;
-		GH[i] = blueWallGH;
+		GH[i] = redWallGH;
 	}
 
 	for (int i = 1;i < wallNum_;i += 2) {
 		//上の壁の中心位置
 		pos_[i].x = pos_[i - 1].x;
 		pos_[i].y = pos_[i - 1].y - (height_[i - 1] / 2.0f) - distance - (height_[i] / 2.0f);
-		GH[i] = blueWall2GH;
+		GH[i] = redWall2GH;
 	}
 
 	for (int i = 0;i < wallNum_;i++) {

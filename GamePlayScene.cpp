@@ -41,7 +41,7 @@ void GamePlayScene::Initialize()
 	case Stage::STAGE3:
 		goalPos = 6500.0f * 1.8f;
 		wall_->Stage3Initialize();
-		bgColor_ = 0x1e90ffff;
+		bgColor_ = WHITE;
 		break;
 	}
 
