@@ -35,8 +35,7 @@ void DrawScene();
 char keys[256] = { 0 };
 char preKeys[256] = { 0 };
 
-
-const char kWindowTitle[] = "LC1C_14_サクマ_シン_タイトル";
+const char kWindowTitle[] = "2045_跳調整";
 
 
 
@@ -60,6 +59,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	overScene = new OverScene();
 	overScene->Initialize();
+
+	Novice::SetWindowMode(kFullscreen);
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {

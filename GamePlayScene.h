@@ -69,5 +69,7 @@ private:
 
 	unsigned int bgColor_ = WHITE;
 
+	int goalGH= Novice::LoadTexture("./Resources/goal.png");
+
 };
 

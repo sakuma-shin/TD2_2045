@@ -95,14 +95,12 @@ void GamePlayScene::Draw()
 	Novice::DrawSprite(int(bgPos.x - scroll_), int(bgPos.y), bgGH, 1.0f, 1.0f, 0.0f, bgColor_);
 	Novice::DrawSprite(int(bgPos2.x - scroll_), int(bgPos2.y), bgGH, 1.0f, 1.0f, 0.0f, bgColor_);
 
+	Novice::DrawSprite(int(goalPos-scroll_-30), 628, goalGH, 0.1f, 0.1f, 0.0f, WHITE);
+
 
 	player_->Draw(scroll_);
 
 	wall_->Draw(scroll_);
-
-	Novice::ScreenPrintf(15, 15, "bg1.pos.x:%f", bgPos.x-scroll_);
-	Novice::ScreenPrintf(15, 30, "bg2.pos.x:%f", bgPos2.x-scroll_);
-
 }
 
 Corners GamePlayScene::PosUpdate(Vector2 pos, float width, float height)
