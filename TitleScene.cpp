@@ -22,7 +22,7 @@ void TitleScene::Update(char keys[256], char preKeys[256])
 
 void TitleScene::Draw()
 {
-	DrawQuad(whiteCorners, whiteGH, 1, 1, RED, 0.0f);
+	DrawQuad(whiteCorners, GH, 1280, 720, WHITE, 0.0f);
 }
 
 Corners TitleScene::PosUpdate(Vector2 pos, float width, float height)

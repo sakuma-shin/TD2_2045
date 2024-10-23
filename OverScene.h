@@ -14,6 +14,8 @@ public:
 
 private:
 
+	int GH = Novice::LoadTexture("./Resources/over.png");
+
 	bool isFinished_ = false;
 
 };
