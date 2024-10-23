@@ -35,7 +35,7 @@ void DrawScene();
 char keys[256] = { 0 };
 char preKeys[256] = { 0 };
 
-const char kWindowTitle[] = "21tei45_跳調整";
+const char kWindowTitle[] = "2145_跳調整";
 
 
 
