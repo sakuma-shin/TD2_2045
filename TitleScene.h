@@ -17,7 +17,7 @@ public:
 
 private:
 
-
+	int GH = Novice::LoadTexture("./Resources/title.png");
 
 	int whiteGH = 0;
 

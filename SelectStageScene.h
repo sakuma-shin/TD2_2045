@@ -18,7 +18,9 @@ public:
 
 	bool IsFinished3() { return isFinished3_; }
 
-	private:
+private:
+
+	int GH = Novice::LoadTexture("./Resources/stageSelect.png");
 
 	bool isFinished1_ = false;
 

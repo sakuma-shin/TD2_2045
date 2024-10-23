@@ -16,6 +16,6 @@ void OverScene::Update(char keys[256], char preKeys[256])
 void OverScene::Draw()
 {
 
-	Novice::ScreenPrintf(10, 10, "overScene");
+	Novice::DrawQuad(0, 0, 1280, 0, 0, 720, 1280, 720, 0, 0, 1280, 720, GH, WHITE);
 
 }

@@ -41,7 +41,7 @@ public:
 	
 private:
 
-
+	/*int GH = Novice::LoadTexture("./Resources/.png");*/
 	
 
 	Stage stage_ = Stage::STAGE1;
