@@ -39,6 +39,8 @@ public:
 
 	float GetSpeed();
 
+	void Reset();
+
 	/// <summary>
 	/// Particle
 	/// </summary>

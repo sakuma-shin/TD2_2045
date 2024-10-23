@@ -129,14 +129,7 @@ void Player::Update(char* keys, char* preKeys) {
 
 		// ジャンプ終了判定 (プレイヤーが地面に着地したか)
 		if (playerPos_.y > 690) {
-			playerPos_.y = 690;  // プレイヤー位置をリセット
-			startJumpPower_ = 0;
-			playerJumpPower_ = 0;
-			downPower_ = 1;  // 重力のリセット
-			oneMoreJump_ = false; // 2段ジャンプリセット
-			isJump_ = false; // ジャンプ終了
-			isGround_ = true;  // 地面に着地
-			isParticle = false;
+			Reset();
 		}
 	}
 }
@@ -190,6 +183,17 @@ Vector2 Player::GetPos()
 float Player::GetSpeed()
 {
 	return moveSpeed_;
+}
+
+void Player::Reset() {
+	playerPos_.y = 690;  // プレイヤー位置をリセット
+	startJumpPower_ = 0;
+	playerJumpPower_ = 0;
+	downPower_ = 1;  // 重力のリセット
+	oneMoreJump_ = false; // 2段ジャンプリセット
+	isJump_ = false; // ジャンプ終了
+	isGround_ = true;  // 地面に着地
+	isParticle = false;
 }
 
 void Player::ParticleInitialize(Vector2 position) {
