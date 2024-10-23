@@ -30,7 +30,13 @@ private:
 
 	int wallNum_ = 0;
 
-	int GH = Novice::LoadTexture("./Resources/wall50.png");
+	int GH[28] = {};
+
+	int redWallGH= Novice::LoadTexture("./Resources/wall.png");
+	int redWall2GH = Novice::LoadTexture("./Resources/wall2.png");
+
+	int blueWallGH = Novice::LoadTexture("./Resources/bluewall.png");
+	int blueWall2GH = Novice::LoadTexture("./Resources/bluewall2.png");
 
 	float debugWidth = 1.3f;
 	float debugDistance = 0.8f;
