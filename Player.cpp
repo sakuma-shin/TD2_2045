@@ -137,6 +137,8 @@ void Player::Update(char* keys, char* preKeys) {
 void Player::Draw(float scroll) {
 	ParticleDraw(scroll);
 
+	Novice::DrawBox(0, 700, 5000, 20, 0.0f, 0x480000ff, kFillModeSolid);
+
 	UINT color = 0;
 
 	if (pushTime_ <= 100) {
@@ -162,7 +164,8 @@ void Player::Draw(float scroll) {
 		int(playerCorner_.rightDown.x - scroll), int(playerCorner_.rightDown.y),
 		0, 0, 1, 1, textureHandle_, WHITE);
 
-	Novice::DrawLine(0, 700, 1280, 700, BLACK);
+	//Novice::DrawLine(0, 700, 1280, 700, BLACK);
+	
 
 }
 
